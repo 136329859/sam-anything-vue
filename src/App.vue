@@ -30,11 +30,10 @@ import { modelData } from 'sam/helpers/onnxModelAPI';
 
 /* @ts-ignore */
 import npyjs from 'npyjs';
-
+import * as ort from 'onnxruntime-web';
 import { useContextStore } from 'sam/store';
 import { ref, onMounted, watch } from 'vue';
 
-const ort = require('onnxruntime-web');
 // Define image, embedding and model paths
 const IMAGE_PATH = '/assets/data/truck.jpg';
 const IMAGE_EMBEDDING = '/assets/data/sam_embedding.npy';
@@ -92,6 +91,7 @@ async function initModel() {
 async function loadNpyTensor(tensorFile: string, dType: string) {
     let npLoader = new npyjs();
     const npArray = await npLoader.load(tensorFile);
+    // @ts-ignore
     const tensor = new ort.Tensor(dType, npArray.data, npArray.shape);
     return tensor;
 }
