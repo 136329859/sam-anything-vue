@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Tool from 'sam/components/Tool.vue';
+
 import { modelInputProps } from 'sam/helpers/Interfaces';
 import { useContextStore } from 'sam/store';
 import * as _ from 'underscore';
@@ -16,7 +18,7 @@ function getClick(x: number, y: number): modelInputProps {
  * 使用setClicks更新点击状态， 并通过App.tsx中的useEffect ，触发ONNX模型运行生成一个新的mask
  */
 function handleMouseMove(e: any) {
-    let el = e.nativeEvent.target;
+    let el = e.target;
     const rect = el.getBoundingClientRect();
     let x = e.clientX - rect.left;
     let y = e.clientY - rect.top;

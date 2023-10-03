@@ -2,21 +2,21 @@
 /**
  * segment-anything前端的交互流程
  *
- * 阶段一 （前端做？OR 后端做？）
+ * 阶段一
  * 0. 拿到需要交互的图片
  * 1. 获取到交互图片的onnx模型
  * 2. 获取到交互图片的npy文件
  *
- * 阶段二（前端做？OR 后端做？）
+ * 阶段二
  * 0. 加载交互图片
  * 1. 加载交互图片的模型
  * 2. 加载交互图片的npy文件
  *
- * 阶段三（前端做？OR 后端做？）
+ * 阶段三
  * 0. 用户点击图片获取到用户点击在了图片的哪个坐标点
  * 1. 获取到对应点击点的mask数据：利用这个坐标点跑onnx模型获取到对应的mask数据
  *
- * 阶段四 （前端做）
+ * 阶段四
  * 0. 将mask数据转换成图片展示给用户，形成用户交互点击在哪个色块上的效果
  */
 
@@ -33,6 +33,7 @@ import npyjs from 'npyjs';
 import * as ort from 'onnxruntime-web';
 import { useContextStore } from 'sam/store';
 import { ref, onMounted, watch } from 'vue';
+import Stage from 'sam/components/Stage.vue';
 
 // Define image, embedding and model paths
 const IMAGE_PATH = '/assets/data/truck.jpg';
@@ -161,7 +162,6 @@ onMounted(async () => {
         // 2.load the Segment Anything pre-computed embedding
         Promise.resolve(loadNpyTensor(IMAGE_EMBEDDING, 'float32')).then(
             (embedding) => {
-                console.log('embedding', embedding);
                 tensor.value = embedding;
             }
         );
@@ -177,5 +177,5 @@ watch(
 </script>
 
 <template>
-    <div>SAM ANYTHING</div>
+    <Stage />
 </template>
