@@ -1,8 +1,9 @@
 {
-    "name": "sam-anything",
+    "name": "sam-anything-vue",
     "private": true,
-    "version": "0.0.0",
+    "version": "0.0.1",
     "type": "module",
+    "author": "jaylenchan <jaylen.work@hotmail.com>",
     "scripts": {
         "dev": "vite",
         "build": "vue-tsc && vite build",
