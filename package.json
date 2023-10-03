@@ -9,11 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.3.4",
     "lz-string": "^1.5.0",
     "npyjs": "^0.4.0",
     "onnxruntime-web": "^1.14.0",
-    "underscore": "^1.13.6"
+    "pinia": "^2.1.6",
+    "underscore": "^1.13.6",
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
