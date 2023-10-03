@@ -35,6 +35,22 @@ import { useContextStore } from 'sam/store';
 import { ref, onMounted, watch } from 'vue';
 import Stage from 'sam/components/Stage.vue';
 
+// Onnxruntime
+ort.env.debug = false;
+// set global logging level
+ort.env.logLevel = 'verbose';
+
+// override path of wasm files - for each file
+ort.env.wasm.numThreads = 2;
+ort.env.wasm.simd = true;
+// ort.env.wasm.proxy = true;
+ort.env.wasm.wasmPaths = {
+    'ort-wasm.wasm': Bun.env.ORT_WASM,
+    'ort-wasm-simd.wasm': Bun.env.ORT_WASM_SIMD,
+    'ort-wasm-threaded.wasm': Bun.env.ORT_WASM_THREADED,
+    'ort-wasm-simd-threaded.wasm': Bun.env.ORT_WASM_SIMD_THREADED
+};
+
 // Define image, embedding and model paths
 const IMAGE_PATH = '/assets/truck.jpg';
 const IMAGE_EMBEDDING = '/assets/sam_embedding.npy';

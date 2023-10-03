@@ -4,9 +4,9 @@
     "useDefineForClassFields": true,
     "module": "ESNext",
     "lib": [
-      "ES2020",
+      "esnext",
       "DOM",
-      "DOM.Iterable"
+      "DOM.Iterable",
     ],
     "skipLibCheck": true,
     /* Bundler mode */
@@ -26,14 +26,17 @@
       "sam/*": [
         "./src/*"
       ]
-    }
+    },
+    "types": [
+      "bun-types"
+    ],
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue"
-  ],
+, "env.d.ts"  ],
   "references": [
     {
       "path": "./tsconfig.node.json"
