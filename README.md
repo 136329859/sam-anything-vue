@@ -8,3 +8,7 @@
     bun i
     bun dev
 ```
+
+## Demo效果
+
+![Sam-Anything-Vue](./sam.gif)
