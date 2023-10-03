@@ -20,7 +20,7 @@
  * 0. 将mask数据转换成图片展示给用户，形成用户交互点击在哪个色块上的效果
  */
 
-import 'sam/assets/scss/App.scss';
+import 'sam/App.scss';
 import { InferenceSession, Tensor } from 'onnxruntime-web';
 
 import { handleImageScale } from 'sam/helpers/scaleHelper';
@@ -36,9 +36,9 @@ import { ref, onMounted, watch } from 'vue';
 import Stage from 'sam/components/Stage.vue';
 
 // Define image, embedding and model paths
-const IMAGE_PATH = '/assets/data/truck.jpg';
-const IMAGE_EMBEDDING = '/assets/data/sam_embedding.npy';
-const MODEL_DIR = '/assets/data/sam_onnx_quantized.onnx';
+const IMAGE_PATH = '/assets/truck.jpg';
+const IMAGE_EMBEDDING = '/assets/sam_embedding.npy';
+const MODEL_DIR = '/assets/sam_onnx_quantized.onnx';
 
 const contextStore = useContextStore();
 

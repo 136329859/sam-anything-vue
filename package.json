@@ -6,7 +6,7 @@
     "author": "jaylenchan <jaylen.work@hotmail.com>",
     "scripts": {
         "dev": "vite",
-        "build": "vue-tsc && vite build",
+        "prod": "vue-tsc && vite build",
         "preview": "vite preview"
     },
     "dependencies": {
